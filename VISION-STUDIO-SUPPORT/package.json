@@ -1,0 +1,35 @@
+{
+  "name": "vision-studio-tools",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/anands1472/cache-clear-app#readme",
+  "bugs": {
+    "url": "https://github.com/anands1472/cache-clear-app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anands1472/cache-clear-app.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:client": "npm run build -w client",
+    "build:gateway": "npm run build -w server",
+    "client": "npm run start -w client",
+    "gateway": "npm run start -w server",
+    "start": "concurrently \"npm run gateway\" \"npm run client\"",
+    "lint": "node ./scripts/scripts.js lint",
+    "format": "node ./scripts/scripts.js format",
+    "clean": "npm run clean --workspaces --parallel",
+    "clear:cache": "npm cache clear --force"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "concurrently": "^9.2.0"
+  }
+}
