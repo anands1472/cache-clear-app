@@ -18,6 +18,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:client": "npm run build -w client",
     "build:gateway": "npm run build -w server",
+    "build": "npm run build --workspace=packages/client && npm run build --workspace=packages/server",
     "client": "npm run start -w client",
     "gateway": "npm run start -w server",
     "start": "concurrently \"npm run gateway\" \"npm run client\"",
@@ -30,6 +31,8 @@
     "packages/*"
   ],
   "devDependencies": {
-    "concurrently": "^9.2.0"
+    "concurrently": "^9.2.0",
+    "npm-run-all": "^4.1.5",
+    "shx": "^0.4.0"
   }
 }
